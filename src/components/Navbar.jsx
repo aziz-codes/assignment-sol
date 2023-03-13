@@ -13,7 +13,9 @@ const Navbar = () => {
         </div>
         <div className="flex gap-5">
           {links.map((link, index) => (
-            <NavLink key={index}>{link.label}</NavLink>
+            <NavLink key={index} className="text-white">
+              {link.label}
+            </NavLink>
           ))}
         </div>
       </div>
