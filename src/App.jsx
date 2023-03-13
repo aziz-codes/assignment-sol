@@ -1,7 +1,12 @@
 import React from "react";
+import MiniBar from "./components/MiniBar";
 
 const App = () => {
-  return <div className="text-red-500">App</div>;
+  return (
+    <div>
+      <MiniBar />
+    </div>
+  );
 };
 
 export default App;
