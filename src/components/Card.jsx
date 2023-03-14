@@ -1,29 +1,52 @@
-import img1 from "../assets/img1.jpg";
+import a1 from "../assets/assignment1.jpg";
+import a2 from "../assets/assignment2.jpg";
+import a3 from "../assets/assignment3.jpg";
 
 const Card = () => {
+  const cards = [
+    {
+      title: "Complete Assignment",
+      image: a1,
+      desc: "Assignment sol provides complete homework in just one click",
+    },
+    {
+      title: "Multiple Courses",
+      image: a2,
+      desc: "AssignmentSol provides multiple computer science courses",
+    },
+    {
+      title: "Templated Assignment",
+      image: a3,
+      desc: "AssignmentSol provides multiple template which you can choose according to your need of detailed answer.",
+    },
+  ];
   return (
-    <section className="bg-gray-900 h-screen flex justify-center items-center gap-x-16 text-white">
-      <div className="w-[300px] h-[420px] bg-transparent cursor-pointer group perspective">
-        <div className="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-1000">
-          <div className="absolute backface-hidden border-2 w-full h-full">
-            <img src={img1} className="w-full h-full" />
-          </div>
-          <div className="absolute my-rotate-y-180 hidden w-full h-full bg-gray-100 overflow-hidden">
-            <div className="text-center flex flex-col items-center justify-center h-full text-gray-800 px-2 pb-24">
-              <h1 className="text-3xl font-semibold">The King's Man</h1>
-              <p className="my-2">9.0 Rating</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-                itaque assumenda saepe animi maxime libero non quasi, odit natus
-                veritatis enim culpa nam inventore doloribus quidem temporibus
-                amet velit accusamus.
-              </p>
-              <button className="bg-teal-500 px-6 py-2 font-semibold text-white rounded-full absolute -bottom-20 delay-500 duration-1000 group-hover:bottom-20 scale-0 group-hover:scale-125">
-                Watch Now
-              </button>
+    <section className="mt-10 flex flex-col items-center gap-x-16 text-white gap-4">
+      <h2 className="text-black text-3xl font-semibold pb-4">
+        AssignmentSol Provides You
+      </h2>
+      <div className="flex flex-row justify-evenly w-full">
+        {cards.map((item, index) => (
+          <div className="flex flex-col gap-2" key={index}>
+            <div className="container">
+              <div className="card">
+                <div className="front">
+                  <img
+                    src={item.image}
+                    className="h-full w-full object-cover bg-cover"
+                  />
+                </div>
+                <div className="back">
+                  <h1 className="text-2xl font-semibold text-center">
+                    {item.title}
+                  </h1>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
             </div>
+            <h3 className="text-black text-lg font-bold">{item.title}</h3>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

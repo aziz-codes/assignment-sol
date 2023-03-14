@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .container {
+            width: 200px;
+            height: 250px;
+            perspective: 800px;
+        }
+    
+        .container:hover>.card {
+            cursor: pointer;
+            transform: rotateY(180deg);
+        }
+    
+        .card {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            transition: transform 1500ms;
+            transform-style: preserve-3d;
+        }
+    
+        .front,
+        .back {
+            height: 100%;
+            width: 100%;
+            box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+            position: absolute;
+            backface-visibility: hidden;
+        }
+    
+    
+    
+        .back {
+            background-color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 0 10px;
+            color: black;
+        }
+}
