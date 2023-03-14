@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 const GenerateAssignment = () => {
   const navigate = useNavigate();
   return (
-    <section className="flex justify-center flex-col items-center gap-5">
+    <section className="flex justify-center flex-col items-center gap-5 pb-44">
       <img src={book} className="object-cover h-44 w-44" />
-      <select className="border p-1">
+      <select className="border p-2  w-[400px]">
         <option selected disabled>
           Select Course
         </option>

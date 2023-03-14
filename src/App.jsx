@@ -8,7 +8,7 @@ import {
   Aboutus,
   Contactus,
   Faqs,
-  GenerateAssignment,
+  SelectCourse,
   ViewCourse,
   ViewTemplate,
   AssignmentTemplate,
@@ -46,7 +46,7 @@ const App = () => {
         },
         {
           path: "/select-course",
-          element: <GenerateAssignment />,
+          element: <SelectCourse />,
         },
         {
           path: "view-course",
