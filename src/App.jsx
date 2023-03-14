@@ -44,7 +44,7 @@ const App = () => {
           element: <Faqs />,
         },
         {
-          path: "/generate-assignment",
+          path: "/select-course",
           element: <GenerateAssignment />,
         },
         {

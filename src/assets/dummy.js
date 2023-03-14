@@ -8,7 +8,7 @@ export const links = [
     label: "View Template",
   },
   {
-    path: "/generate-assignment",
+    path: "/select-course",
     label: "Generate Assignment",
   },
   {

@@ -26,7 +26,7 @@ const Footer = () => {
           </h4>
           <div className="flex flex-col gap-3 text-sky-500">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/generate-assignment">Generate Assignment</NavLink>
+            <NavLink to="/select-course">Generate Assignment</NavLink>
             <NavLink to="/view-course">View Course</NavLink>
           </div>
         </div>
