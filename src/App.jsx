@@ -15,11 +15,11 @@ import {
 const App = () => {
   const Layout = () => {
     return (
-      <>
+      <div className="flex flex-col justify-between h-screen">
         <Navbar />
         <Outlet />
         <Footer />
-      </>
+      </div>
     );
   };
   const router = createBrowserRouter([
