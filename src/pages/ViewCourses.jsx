@@ -1,7 +1,7 @@
-import React from "react";
+import Courses from "../layouts/Courses";
 
 const ViewCourses = () => {
-  return <div>ViewCourses</div>;
+  return <Courses />;
 };
 
 export default ViewCourses;
