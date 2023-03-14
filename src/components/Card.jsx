@@ -25,7 +25,7 @@ const Card = () => {
       <h2 className="text-black text-3xl font-semibold pb-4">
         AssignmentSol Provides You
       </h2>
-      <div className="flex flex-row justify-evenly w-full">
+      <div className="flex flex-wrap flex-row justify-evenly w-full">
         {cards.map((item, index) => (
           <div className="flex flex-col gap-2" key={index}>
             <div className="container">

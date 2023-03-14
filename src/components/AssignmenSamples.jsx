@@ -10,7 +10,7 @@ const AssignmenSamples = () => {
       <h4 className="text-black text-3xl font-semibold pb-4">
         Assignment Samples
       </h4>
-      <div className="px-2 my-4 w-3/4 flex flex-row gap-3 justify-between">
+      <div className="px-2 my-4 w-3/4 flex flex-row gap-3 justify-center lg:justify-between flex-wrap">
         {images.map((image, index) => (
           <img
             src={image}

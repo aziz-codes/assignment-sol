@@ -17,7 +17,7 @@ import {
 const App = () => {
   const Layout = () => {
     return (
-      <div className="flex flex-col justify-between h-screen">
+      <div>
         <Navbar />
         <Outlet />
         <Footer />

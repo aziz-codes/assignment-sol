@@ -42,7 +42,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <div
-              className="flex flex-row cursor-pointer text-white relative items-center hover:bg-black py-2"
+              className="flex flex-row cursor-pointer text-white relative items-center hover:bg-black py-2 z-50"
               onClick={() => {
                 setOpen(!open);
               }}
