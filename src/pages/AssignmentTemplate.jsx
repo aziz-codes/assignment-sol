@@ -1,11 +1,11 @@
-import book from "../assets/book.png";
+import template from "../assets/template.png";
 import { useNavigate } from "react-router-dom";
 
 const AssignmentTemplate = () => {
   const navigate = useNavigate();
   return (
-    <section className="flex justify-center flex-col items-center gap-5 pb-44">
-      <img src={book} className="object-cover h-44 w-44" />
+    <section className="flex justify-center flex-col items-center gap-5 pb-44 my-4">
+      <img src={template} className="object-cover h-44 w-44" />
       <select className="border p-2 max-w-sm w-[400px]">
         <option selected disabled>
           Select Your Template
@@ -25,7 +25,7 @@ const AssignmentTemplate = () => {
           Previous
         </button>
         <button
-          className="bg-black w-28 py-1 text-center  rounded-md text-white"
+          className="bg-[#0b8d9f] w-28 py-1 text-center  rounded-md text-white"
           onClick={() => {
             navigate("/generate-assignment");
           }}
