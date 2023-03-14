@@ -30,7 +30,7 @@ const TemplateCard = () => {
     },
   ];
   return (
-    <section className="flex flex-row gap-4 justify-evenly">
+    <section className="flex flex-row gap-4 justify-evenly flex-wrap">
       {template.map((temp, index) => (
         <div
           key={index}
