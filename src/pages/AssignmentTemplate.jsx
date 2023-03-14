@@ -27,7 +27,7 @@ const AssignmentTemplate = () => {
         <button
           className="bg-black w-28 py-1 text-center  rounded-md text-white"
           onClick={() => {
-            navigate("/select-template");
+            navigate("/generate-assignment");
           }}
         >
           Next

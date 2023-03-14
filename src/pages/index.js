@@ -6,3 +6,4 @@ export { default as ViewCourse } from "./ViewCourses";
 export { default as ViewTemplate } from "./ViewTemplate";
 export { default as SelectCourse } from "./SelectCourse";
 export { default as AssignmentTemplate } from "./AssignmentTemplate";
+export { default as GenerateAssignment } from "./GenerateAssignment";
