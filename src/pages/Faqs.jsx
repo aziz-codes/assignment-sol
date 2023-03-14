@@ -1,7 +1,11 @@
-import React from "react";
+import FaqsAccordian from "../layouts/FaqsAccordian";
 
 const Faqs = () => {
-  return <div>Faqs</div>;
+  return (
+    <section className="flex justify-center">
+      <FaqsAccordian />
+    </section>
+  );
 };
 
 export default Faqs;
