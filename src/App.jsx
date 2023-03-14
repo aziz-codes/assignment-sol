@@ -11,6 +11,7 @@ import {
   GenerateAssignment,
   ViewCourse,
   ViewTemplate,
+  AssignmentTemplate,
 } from "./pages/index";
 const App = () => {
   const Layout = () => {
@@ -54,6 +55,10 @@ const App = () => {
         {
           path: "view-template",
           element: <ViewTemplate />,
+        },
+        {
+          path: "/select-template",
+          element: <AssignmentTemplate />,
         },
       ],
     },
