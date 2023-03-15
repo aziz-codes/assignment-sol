@@ -1,4 +1,3 @@
-import React from "react";
 import MiniBar from "./components/MiniBar";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -13,7 +12,10 @@ import {
   ViewTemplate,
   AssignmentTemplate,
   GenerateAssignment,
+  Signin,
+  Signup,
 } from "./pages/index";
+import Error from "./components/Error";
 const App = () => {
   const Layout = () => {
     return (
@@ -24,10 +26,12 @@ const App = () => {
       </div>
     );
   };
+
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout />,
+      errorElement: <Error />,
       children: [
         {
           path: "/",
@@ -65,6 +69,18 @@ const App = () => {
           path: "generate-assignment",
           element: <GenerateAssignment />,
         },
+        {
+          path: "signup",
+          element: <Signup />,
+        },
+        {
+          path: "forgot-password",
+          element: <div>Forgot Password</div>,
+        },
+        {
+          path: "signin",
+          element: <Signin />,
+        },
       ],
     },
   ]);
@@ -72,6 +88,7 @@ const App = () => {
   return (
     <div>
       <MiniBar />
+
       <RouterProvider router={router} />
     </div>
   );

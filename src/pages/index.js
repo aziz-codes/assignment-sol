@@ -7,3 +7,5 @@ export { default as ViewTemplate } from "./ViewTemplate";
 export { default as SelectCourse } from "./SelectCourse";
 export { default as AssignmentTemplate } from "./AssignmentTemplate";
 export { default as GenerateAssignment } from "./GenerateAssignment";
+export { default as Signin } from "./Signin";
+export { default as Signup } from "./Signup";

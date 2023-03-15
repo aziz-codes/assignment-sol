@@ -1,11 +1,11 @@
 const Contactus = () => {
   return (
-    <section className="flex lg:flex-row flex-col flex-wrap justify-center px-3 w-full my-6">
-      <div className="first-section flex flex-col gap-10 max-w-md relative top-20 pr-3">
+    <section className="flex lg:flex-row flex-col-reverse flex-wrap justify-center  px-3 w-full  gap-4 items-center h-screen">
+      <div className="first-section flex flex-col gap-10 max-w-md relative  pr-3 items-center">
         <h1 className="text-[#0b8d9f] text-3xl italic">
           Don't Be Shy, Talk to Us.
         </h1>
-        <h4 className="text-md text-gray-400">
+        <h4 className="text-md text-gray-400 text-center px-12 lg:px-1">
           Here is a few approaches to get in touch with me, It would be ideal if
           you send an email, fill the contact form.{" "}
           <span className="font-bold text-black">

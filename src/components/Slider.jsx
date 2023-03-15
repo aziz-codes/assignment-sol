@@ -2,8 +2,10 @@ import img1 from "../assets/img1.jpg";
 import img2 from "../assets/img2.jpg";
 import img3 from "../assets/img3.jpg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
 const Slider = () => {
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
   const [sliderData, setData] = useState([
     {
@@ -54,7 +56,12 @@ const Slider = () => {
           <p className="text-white text-center font-bold">
             {sliderData[index].desc}
           </p>
-          <button className="rounded-sm px-1 py-2 font-bold bg-[#0b8d9f]  mt-4 text-white w-28">
+          <button
+            className="rounded-sm px-1 py-2 font-bold bg-[#0b8d9f]  mt-4 text-white w-28"
+            onClick={() => {
+              navigate("/signup");
+            }}
+          >
             Register Now
           </button>
         </div>
