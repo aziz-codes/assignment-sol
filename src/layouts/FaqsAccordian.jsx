@@ -46,7 +46,9 @@ const FaqsAccordian = () => {
     <section className="flex flex-col justify-center items-center my-6">
       <img src={help} alt="faqs" className="h-24 w-24 object-cover" />
       <h3 className="font-[600] text-2xl">Frequently Asked Questions</h3>
-      <label className="text-gray-400">Our frequently asked questions</label>
+      <label className="text-gray-400">
+        Our frequently asked questions here
+      </label>
       <div className="flex flex-col gap-4 my-6 shadow-md border p-6 w-[800px] max-w-4xl">
         {faqs.map((item, i) => (
           <div className="flex flex-col px-2 w-full" key={i}>
