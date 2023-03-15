@@ -9,3 +9,4 @@ export { default as AssignmentTemplate } from "./AssignmentTemplate";
 export { default as GenerateAssignment } from "./GenerateAssignment";
 export { default as Signin } from "./Signin";
 export { default as Signup } from "./Signup";
+export { default as ForgotPassword } from "./ForgotPassword";

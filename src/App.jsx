@@ -14,6 +14,7 @@ import {
   GenerateAssignment,
   Signin,
   Signup,
+  ForgotPassword,
 } from "./pages/index";
 import Error from "./components/Error";
 const App = () => {
@@ -80,6 +81,10 @@ const App = () => {
         {
           path: "signin",
           element: <Signin />,
+        },
+        {
+          path: "/forgot-password",
+          element: <ForgotPassword />,
         },
       ],
     },
