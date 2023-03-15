@@ -57,12 +57,12 @@ const Signup = () => {
                 className="outline-none border-b p-2"
               />
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 className="outline-none border-b p-2"
               />
               <input
-                type="email"
+                type="password"
                 placeholder="Confirm Password"
                 className="outline-none border-b p-2"
               />

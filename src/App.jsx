@@ -15,6 +15,7 @@ import {
   Signin,
   Signup,
   ForgotPassword,
+  ChangePassword,
 } from "./pages/index";
 import Error from "./components/Error";
 const App = () => {
@@ -74,17 +75,18 @@ const App = () => {
           path: "signup",
           element: <Signup />,
         },
-        {
-          path: "forgot-password",
-          element: <div>Forgot Password</div>,
-        },
+
         {
           path: "signin",
           element: <Signin />,
         },
         {
-          path: "/forgot-password",
+          path: "forgot-password",
           element: <ForgotPassword />,
+        },
+        {
+          path: "change-password",
+          element: <ChangePassword />,
         },
       ],
     },
