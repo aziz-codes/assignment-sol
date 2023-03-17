@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 // import Card from "../components/Card";
 import Services from "../components/Services";
 import SliderSkeleton from "../layouts/SliderSkeleton";
+import MileStone from "../components/MileStone";
 import { lazy, Suspense } from "react";
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
         <Slider />
       </Suspense>
       <Services />
+      <MileStone />
       <Banner />
       <AssignmenSamples />
     </>
