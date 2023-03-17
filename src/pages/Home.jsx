@@ -1,6 +1,7 @@
 import AssignmenSamples from "../components/AssignmenSamples";
 import Banner from "../components/Banner";
-import Card from "../components/Card";
+// import Card from "../components/Card";
+import Services from "../components/Services";
 import SliderSkeleton from "../layouts/SliderSkeleton";
 import { lazy, Suspense } from "react";
 
@@ -11,7 +12,7 @@ const Home = () => {
       <Suspense fallback={<SliderSkeleton />}>
         <Slider />
       </Suspense>
-      <Card />
+      <Services />
       <Banner />
       <AssignmenSamples />
     </>
