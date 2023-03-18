@@ -6,7 +6,7 @@ const AssignmenSamples = () => {
   const images = [at1, at2, at3, at4];
 
   return (
-    <section className="flex justify-center flex-col items-center py-4">
+    <section className="flex justify-center flex-col items-center py-4 h-96 mt-5">
       <h4 className="text-black text-3xl font-semibold pb-4">
         Assignment Samples
       </h4>

@@ -5,7 +5,7 @@ import Services from "../components/Services";
 import SliderSkeleton from "../layouts/SliderSkeleton";
 import MileStone from "../components/MileStone";
 import { lazy, Suspense } from "react";
-
+import PricingTable from "../components/PricingTable";
 const Home = () => {
   const Slider = lazy(() => import("../components/Slider"));
   const Testimonial = lazy(() => import("../components/Testimonials"));
@@ -19,7 +19,8 @@ const Home = () => {
       <Suspense fallback="Loading...">
         <Testimonial />
       </Suspense>
-      <Banner />
+      <PricingTable />
+      {/* <Banner /> */}
       <AssignmenSamples />
     </>
   );
