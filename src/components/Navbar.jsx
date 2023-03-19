@@ -3,6 +3,8 @@ import { links } from "../assets/dummy";
 import { AiFillCaretDown } from "react-icons/ai";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
+
 const Navbar = () => {
   const location = useLocation();
   const subMenu = [
@@ -30,22 +32,23 @@ const Navbar = () => {
   return (
     <>
       {!isAuth && (
-        <nav className="bg-[#0b8d9f] w-full h-12">
-          <div className="w-full relative flex justify-start px-1 items-center h-full gap-6">
-            <div className="flex">
-              <h4 className="bg-black text-xl font-semibold text-[#0b8d9f]">
-                ASSIGNMENT
-              </h4>
+        <nav className="bg-[#0b8d9f] w-full h-12 ">
+          <div className="w-full relative flex justify-evenly px-1 items-center h-full gap-6">
+            <div className="flex items-center gap-6">
+              <div className="flex">
+                <h4 className="bg-black text-xl font-semibold text-[#0b8d9f]">
+                  ASSIGNMENT
+                </h4>
 
-              <span className="bg-white font-semibold pr-0.5">SOL</span>
-            </div>
-            {location.pathname === "/" ? (
+                <span className="bg-white font-semibold pr-0.5">SOL</span>
+              </div>
+
               <div className="flex gap-5">
                 {links.map((link, index) => (
                   <NavLink
                     key={index}
                     to={link.path}
-                    className="text-white py-2 hover:bg-black px-0.5"
+                    className="text-white py-2 hover:bg-black px-0.5 text-sm"
                   >
                     {link.label}
                   </NavLink>
@@ -56,6 +59,7 @@ const Navbar = () => {
                     setOpen(!open);
                   }}
                 >
+                  <QuestionMarkCircleIcon className="h-3 w-3 relative top-1" />
                   <label className="cursor-pointer">Help</label>
                   <AiFillCaretDown className="text-white h-3 w-3 cursor-pointer" />
                   {open && (
@@ -75,19 +79,14 @@ const Navbar = () => {
                   )}
                 </div>
               </div>
-            ) : (
-              <div className="flex items-center gap-5">
-                <NavLink
-                  to="/"
-                  className="text-white py-2 hover:bg-black px-0.5"
-                >
-                  Home
-                </NavLink>
-                <label className="capitalize text-white">
-                  {location.pathname.replace("/", "").replace("-", " ")}
-                </label>
-              </div>
-            )}
+            </div>
+            <NavLink
+              className="flex text-white items-center text-sm"
+              to="/signup"
+            >
+              <span>Register</span>
+              <AiFillCaretDown className="text-white h-3 w-3 cursor-pointer" />
+            </NavLink>
           </div>
         </nav>
       )}
