@@ -15,6 +15,7 @@ const GenerateAssignment = () => {
   const [option, setOptions] = useState("");
   const handleSubmit = async () => {
     setLoading(true);
+    setImages([]);
     const API_KEY = "AIzaSyA-FuW-FifYEl1V04jU757_SpGlnghn3-Y";
     const SEARCH_ENGINE_ID = "97639ebc141614b17";
     const URL = `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${SEARCH_ENGINE_ID}&q=${searchTerm}`;
