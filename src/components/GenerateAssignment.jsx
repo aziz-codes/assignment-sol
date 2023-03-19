@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import pc from "../assets/pc.jpeg";
 import axios from "axios";
-
+import { saveAs } from "file-saver";
 const GenerateAssignment = () => {
   const resultRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -35,12 +35,10 @@ const GenerateAssignment = () => {
   };
   const handleDownload = () => {
     const text = document.getElementById("result").textContent;
-    console.log(text[3]);
-    console.log(searchResults[0].snippet);
-    // const blob = new Blob([text], {
-    //   type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    // });
-    // saveAs(blob, "document.docx");
+    const blob = new Blob([text], {
+      type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    });
+    saveAs(blob, "document.docx");
   };
   const handlePrint = () => {
     var divContents = document.getElementById("result").innerHTML;
