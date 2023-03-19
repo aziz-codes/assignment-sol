@@ -42,8 +42,8 @@ const GenerateAssignment = () => {
   };
   const handlePrint = () => {
     var divContents = document.getElementById("result").innerHTML;
-    var printWindow = window.open("", "", "height=200,width=400");
-    printWindow.document.write("<html><head><title>Print DIV Content</title>");
+    var printWindow = window.open("", "", "height=900,width=1000");
+    printWindow.document.write("<html><head><title>Print Assignment</title>");
     printWindow.document.write("</head><body >");
     printWindow.document.write(divContents);
     printWindow.document.write("</body></html>");

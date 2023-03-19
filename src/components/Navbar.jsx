@@ -4,8 +4,9 @@ import { AiFillCaretDown } from "react-icons/ai";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
-
+import { useRef, useEffect } from "react";
 const Navbar = () => {
+  const subMenuRef = useRef(null);
   const location = useLocation();
   const subMenu = [
     {
@@ -29,6 +30,20 @@ const Navbar = () => {
       pathname === "/signin"
   );
 
+  const handleClick = () => {
+    setOpen(true);
+  };
+  useEffect(() => {
+    const handleMouseClick = (e) => {
+      if (!subMenuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleMouseClick);
+
+    return () => window.removeEventListener("mousedown", handleMouseClick);
+  }, [subMenuRef]);
   return (
     <>
       {!isAuth && (
@@ -55,9 +70,8 @@ const Navbar = () => {
                 ))}
                 <div
                   className="flex flex-row cursor-pointer text-white relative items-center hover:bg-black py-2 z-50"
-                  onClick={() => {
-                    setOpen(!open);
-                  }}
+                  onClick={handleClick}
+                  ref={subMenuRef}
                 >
                   <QuestionMarkCircleIcon className="h-3 w-3 relative top-1" />
                   <label className="cursor-pointer">Help</label>
