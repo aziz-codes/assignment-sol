@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import pc from "../assets/pc.jpeg";
 import axios from "axios";
+
 const GenerateAssignment = () => {
+  const resultRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [hasError, setHasError] = useState(false);
@@ -23,6 +25,7 @@ const GenerateAssignment = () => {
     }
   };
   const handleChange = (e) => {
+    setSearchTerm(e);
     if (e.length > 3) {
       setHasError(false);
     } else {
@@ -30,7 +33,25 @@ const GenerateAssignment = () => {
       setError("Query must be more than 10 charecters");
     }
   };
-
+  const handleDownload = () => {
+    const text = document.getElementById("result").textContent;
+    console.log(text[3]);
+    console.log(searchResults[0].snippet);
+    // const blob = new Blob([text], {
+    //   type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    // });
+    // saveAs(blob, "document.docx");
+  };
+  const handlePrint = () => {
+    var divContents = document.getElementById("result").innerHTML;
+    var printWindow = window.open("", "", "height=200,width=400");
+    printWindow.document.write("<html><head><title>Print DIV Content</title>");
+    printWindow.document.write("</head><body >");
+    printWindow.document.write(divContents);
+    printWindow.document.write("</body></html>");
+    printWindow.document.close();
+    printWindow.print();
+  };
   return (
     <section className="flex w-full flex-col gap-6 my-6 items-center h-auto overflow-y-auto pb-20">
       <div className="flex gap-1 items-center">
@@ -66,16 +87,18 @@ const GenerateAssignment = () => {
         <div>
           <button
             className={`flex items-center px-3 py-0.5  rounded-sm border-none ${
-              hasError ? "bg-gray-300 text-gray-500" : "bg-[#0b8d9f] text-white"
+              hasError || loading
+                ? "bg-gray-300 text-gray-500"
+                : "bg-[#0b8d9f] text-white"
             }`}
             onClick={handleSubmit}
-            disabled={hasError}
+            disabled={hasError || loading}
           >
             {loading && (
               <svg
                 aria-hidden="true"
                 role="status"
-                class="inline w-4 h-4 mr-3 text-white animate-spin"
+                className="inline w-4 h-4 mr-3 text-white animate-spin"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +117,11 @@ const GenerateAssignment = () => {
           </button>
         </div>
       </div>
-      <div className="h-auto  w-[896px] max-w-4xl my-4 border p-2 px-4 result flex flex-col gap-4">
+      <div
+        className="h-auto  w-[896px] max-w-4xl my-4 border p-2 px-4 result flex flex-col gap-4"
+        id="result"
+        ref={resultRef}
+      >
         <h4 className="font-bold">Introduction</h4>
         <div className="h-auto ">
           {loading ? (
@@ -113,10 +140,16 @@ const GenerateAssignment = () => {
         </div>
       </div>
       <div className="flex justify-center gap-4">
-        <button className="text-sm px-2  border-none font-semibold text-white bg-[#0b8d9f] py-1 ">
+        <button
+          className="text-sm px-2  border-none font-semibold text-white bg-[#0b8d9f] py-1 "
+          onClick={handleDownload}
+        >
           Download as Word
         </button>
-        <button className="text-sm px-2  border-none font-semibold text-white bg-[#0b8d9f] py-1 ">
+        <button
+          className="text-sm px-2  border-none font-semibold text-white bg-[#0b8d9f] py-1 "
+          onClick={handlePrint}
+        >
           Preview and Download as PDF
         </button>
       </div>
