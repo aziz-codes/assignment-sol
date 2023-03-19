@@ -38,16 +38,18 @@ const TemplateCard = () => {
         >
           <h4 className="text-lg font-semibold">{temp.title}</h4>
           <ul className="text-gray-500 ">
-            {temp.attributes.map((attr, i) =>
-              !temp.isBlank ? (
-                <li key={i} className="flex gap-2">
-                  <span>{`${i})`}</span>
-                  <label>{attr}</label>
-                </li>
-              ) : (
-                <p>{attr}</p>
-              )
-            )}
+            {temp.attributes.map((attr, i) => (
+              <div key={i}>
+                {!temp.isBlank ? (
+                  <li className="flex gap-2">
+                    <span>{`${i})`}</span>
+                    <label>{attr}</label>
+                  </li>
+                ) : (
+                  <p>{attr}</p>
+                )}
+              </div>
+            ))}
           </ul>
         </div>
       ))}
