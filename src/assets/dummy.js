@@ -4,7 +4,7 @@ export const links = [
     label: "Home",
   },
   {
-    path: "/select-course",
+    path: "generate-assignment",
     label: "Generate Assignment",
   },
   {
