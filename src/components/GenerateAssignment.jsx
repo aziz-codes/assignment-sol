@@ -2,13 +2,17 @@ import { useState, useRef } from "react";
 import pc from "../assets/pc.jpeg";
 import axios from "axios";
 import { saveAs } from "file-saver";
+import TemplateProSkeleton from "../layouts/TemplateProSkeleton";
 const GenerateAssignment = () => {
   const resultRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [loading2, setLoading2] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [images, setImages] = useState([]);
+  const [option, setOptions] = useState("");
   const handleSubmit = async () => {
     setLoading(true);
     const API_KEY = "AIzaSyA-FuW-FifYEl1V04jU757_SpGlnghn3-Y";
@@ -18,11 +22,21 @@ const GenerateAssignment = () => {
     try {
       const response = await axios.get(URL);
       setSearchResults(response.data.items);
+      if (option === "Complex" || option === "Medium") {
+        getImages();
+      }
       setLoading(false);
-      console.log(response.data.items);
     } catch (error) {
       console.log(error);
     }
+  };
+  const getImages = async () => {
+    setLoading2(true);
+    const accessKey = "cHY6kjI9g-yMFmbzDipPwdd0SLzbt4oFuOHNY5o2z14";
+    const url = `https://api.unsplash.com/search/photos/?query=${searchTerm}&client_id=${accessKey}&per_page=1`;
+    const res = await axios.get(url);
+    setLoading2(false);
+    setImages(res.data.results[0].urls.regular);
   };
   const handleChange = (e) => {
     setSearchTerm(e);
@@ -62,7 +76,12 @@ const GenerateAssignment = () => {
       </div>
       <div className="flex w-full gap-6 px-12">
         <div>
-          <select className="border w-56 p-0 rounded-sm">
+          <select
+            className="border w-56 p-0 rounded-sm outline-none"
+            onChange={(e) => {
+              setOptions(e.target.value);
+            }}
+          >
             <option>Easy</option>
             <option>Medium</option>
             <option>Complex</option>
@@ -122,19 +141,51 @@ const GenerateAssignment = () => {
       >
         <h4 className="font-bold">Introduction</h4>
         <div className="h-auto ">
-          {loading ? (
+          {loading || searchResults.length === 0 ? (
             <div className="h-2 w-96 bg-gray-300 animate-pulse rounded-sm"></div>
           ) : (
-            searchResults.map((result) => (
+            searchResults.slice(2).map((result) => (
               <div key={result.link}>
                 {loading ? (
                   <div className="h-1 w-96 animate-pulse bg-gray-300 rounded-sm"></div>
                 ) : (
-                  <p>{result.snippet}</p>
+                  <div>
+                    <p>{result.snippet}</p>
+                  </div>
                 )}
               </div>
             ))
           )}
+          {option === "Complex" || option === "Medium" ? (
+            <div>
+              {loading2 ? (
+                <TemplateProSkeleton />
+              ) : (
+                <div className="flex flex-col mt-4 gap-2">
+                  <h4 className="font-semibold">Diagram</h4>
+                  {images.length > 0 ? (
+                    <img
+                      src={images}
+                      alt="source"
+                      className="h-44 w-44 object-cover"
+                    />
+                  ) : (
+                    <div className="h-44 w-44 bg-gray-300 animate-pulse"></div>
+                  )}
+                  <h4 className="font-semibold">Example</h4>
+                  {searchResults.length > 0 ? (
+                    <label>
+                      {searchResults[0]?.snippet +
+                        " " +
+                        searchResults[2]?.snippet}
+                    </label>
+                  ) : (
+                    <div className="h-1 w-full bg-gray-300 animate-pulse "></div>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : null}
         </div>
       </div>
       <div className="flex justify-center gap-4">
