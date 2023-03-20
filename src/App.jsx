@@ -103,3 +103,4 @@ const App = () => {
 
 export default App;
 // all commit a head this commits are for verison 1.2
+// final commit for version 1.2
