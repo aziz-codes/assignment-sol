@@ -5,6 +5,7 @@ import { saveAs } from "file-saver";
 import TemplateProSkeleton from "../layouts/TemplateProSkeleton";
 const GenerateAssignment = () => {
   const resultRef = useRef(null);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading2, setLoading2] = useState(false);
@@ -13,6 +14,7 @@ const GenerateAssignment = () => {
   const [loading, setLoading] = useState(false);
   const [images, setImages] = useState([]);
   const [option, setOptions] = useState("");
+  let SearchedImage = "";
   const handleSubmit = async () => {
     setLoading(true);
     setImages([]);
@@ -24,21 +26,22 @@ const GenerateAssignment = () => {
       const response = await axios.get(URL);
       setSearchResults(response.data.items);
       if (option === "Complex" || option === "Medium") {
-        getImages();
+        // getImages();
+        searchImages(searchTerm);
       }
       setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
-  const getImages = async () => {
-    setLoading2(true);
-    const accessKey = "cHY6kjI9g-yMFmbzDipPwdd0SLzbt4oFuOHNY5o2z14";
-    const url = `https://api.unsplash.com/search/photos/?query=${searchTerm}&client_id=${accessKey}&per_page=1`;
-    const res = await axios.get(url);
-    setLoading2(false);
-    setImages(res.data.results[0].urls.regular);
-  };
+  // const getImages = async () => {
+  //   setLoading2(true);
+  //   const accessKey = "cHY6kjI9g-yMFmbzDipPwdd0SLzbt4oFuOHNY5o2z14";
+  //   const url = `https://api.unsplash.com/search/photos/?query=${searchTerm}&client_id=${accessKey}&per_page=1`;
+  //   const res = await axios.get(url);
+  //   setLoading2(false);
+  //   setImages(res.data.results[0].urls.regular);
+  // };
   const handleChange = (e) => {
     setSearchTerm(e);
     if (e.length > 3) {
@@ -64,6 +67,21 @@ const GenerateAssignment = () => {
     printWindow.document.write("</body></html>");
     printWindow.document.close();
     printWindow.print();
+  };
+  const searchImages = async (searchTerm) => {
+    const apiKey = "AIzaSyA-FuW-FifYEl1V04jU757_SpGlnghn3-Y";
+    const SEARCH_ENGINE_ID = "97639ebc141614b17";
+    const searchUrl = `https://www.googleapis.com/customsearch/v1?q=${searchTerm}&cx=${SEARCH_ENGINE_ID}&imgSize=large&imgType=photo&num=3&searchType=image&key=${apiKey}`;
+
+    return await axios
+      .get(searchUrl)
+      .then((response) => {
+        const images = response.data.items.map((item) => item.link);
+        setImages(images[0]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <section className="flex w-full flex-col gap-6 my-6 items-center h-auto overflow-y-auto pb-20">
