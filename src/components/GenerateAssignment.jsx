@@ -14,7 +14,7 @@ const GenerateAssignment = () => {
   const [loading, setLoading] = useState(false);
   const [images, setImages] = useState([]);
   const [option, setOptions] = useState("");
-  let SearchedImage = "";
+
   const handleSubmit = async () => {
     setLoading(true);
     setImages([]);
@@ -28,6 +28,7 @@ const GenerateAssignment = () => {
       if (option === "Complex" || option === "Medium") {
         // getImages();
         searchImages(searchTerm);
+        console.log(response.data.items);
       }
       setLoading(false);
     } catch (error) {
