@@ -2,11 +2,16 @@ const TemplateCard = () => {
   const template = [
     {
       title: "Easy Template",
-      attributes: ["Difinition", "Example", "Advantages", "Disadvantages"],
+      attributes: ["Difinition"],
       isBlank: false,
     },
     {
       title: "Medium Template",
+      attributes: ["Difinition", "Example", "Diagram"],
+      isBlank: false,
+    },
+    {
+      title: "Complex Template",
       attributes: [
         "Difinition",
         "Example",
@@ -14,11 +19,6 @@ const TemplateCard = () => {
         "Disadvantages",
         "Diagram",
       ],
-      isBlank: false,
-    },
-    {
-      title: "Complex Template",
-      attributes: ["Difinition", "Example", "Advantages", "Disadvantages"],
       isBlank: false,
     },
     {
