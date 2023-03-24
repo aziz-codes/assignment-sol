@@ -1,19 +1,18 @@
-import { data } from "autoprefixer";
 import React from "react";
+import wajahat from "../assets/wajahat.jpg";
+import naveed from "../assets/naveed.jpg";
 
 const Testimonials = () => {
   const peoples = [
     {
-      name: "Alex",
+      name: "Wajahat",
       designation: "Web Developer",
-      avatar:
-        "https://images.unsplash.com/photo-1602233158242-3ba0ac4d2167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2lybHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
+      avatar: wajahat,
     },
     {
-      name: "Arrora",
+      name: "Naveed",
       designation: "Database Administrator",
-      avatar:
-        "https://plus.unsplash.com/premium_photo-1666264200737-f1638c623270?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGdpcmx8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      avatar: naveed,
     },
     {
       name: "Yankovich",
@@ -33,7 +32,7 @@ const Testimonials = () => {
           >
             <img
               src={person.avatar}
-              className="h-32 w-32 rounded-full object-cover"
+              className="h-28 w-28 rounded-full object-fill"
               alt="user"
             />
             <h2 className="font-bold text-lg p-2">{person.name}</h2>
