@@ -28,21 +28,13 @@ const GenerateAssignment = () => {
       if (option === "Complex" || option === "Medium") {
         // getImages();
         searchImages(searchTerm);
-        console.log(response.data.items);
       }
       setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
-  // const getImages = async () => {
-  //   setLoading2(true);
-  //   const accessKey = "cHY6kjI9g-yMFmbzDipPwdd0SLzbt4oFuOHNY5o2z14";
-  //   const url = `https://api.unsplash.com/search/photos/?query=${searchTerm}&client_id=${accessKey}&per_page=1`;
-  //   const res = await axios.get(url);
-  //   setLoading2(false);
-  //   setImages(res.data.results[0].urls.regular);
-  // };
+
   const handleChange = (e) => {
     setSearchTerm(e);
     if (e.length > 3) {
