@@ -1,9 +1,6 @@
 import * as React from "react";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import {
-  QuestionMarkCircleIcon,
-  ChatBubbleOvalLeftIcon,
-} from "@heroicons/react/24/outline";
+import { motion, AnimatePresence } from "framer-motion";
 import help from "../assets/help.png";
 const FaqsAccordian = () => {
   const { useState } = React;
@@ -59,7 +56,7 @@ const FaqsAccordian = () => {
             >
               {item.expended ? (
                 <div
-                  className={`relative h-9 w-9 -left-1 border shadow-xl text-white rounded-full bg-[#0b8d9f] flex justify-center items-center`}
+                  className={`relative h-9 w-9 -left-1 border  shadow-xl text-white rounded-full bg-[#0b8d9f] flex justify-center items-center`}
                 >
                   <ChevronRightIcon
                     className="h-5 w-5 cursor-pointer"
@@ -80,20 +77,28 @@ const FaqsAccordian = () => {
               )}
               <div className="font-bold tracking-wider">{item.question}</div>
             </div>
-            {item.expended && (
-              <div className="relative left-8 my-2 flex flex-col gap-6 mt-8">
-                <div className="border-l border-dotted border-l-gray-500 px-2 text-gray-400 my-1">
-                  {item.title}
-                </div>
-                <div className="flex flex-col gap-1 text-gray-400">
-                  {item.answer.map((ans, index) => (
-                    <label key={index} className="text-sm">
-                      {ans}
-                    </label>
-                  ))}
-                </div>
-              </div>
-            )}
+            <AnimatePresence>
+              {item.expended && (
+                <motion.div
+                  className="relative left-8 my-2 flex flex-col gap-6 mt-8 "
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  <div className="border-l border-dotted border-l-gray-500 px-2 text-gray-400 my-1">
+                    {item.title}
+                  </div>
+                  <div className="flex flex-col gap-1 text-gray-400 transition-opacity duration-1000 ease-in-out">
+                    {item.answer.map((ans, index) => (
+                      <label key={index} className="text-sm">
+                        {ans}
+                      </label>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>

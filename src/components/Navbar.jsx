@@ -76,13 +76,14 @@ const Navbar = () => {
                   <QuestionMarkCircleIcon className="h-3 w-3 relative top-1" />
                   <label className="cursor-pointer">Help</label>
                   <AiFillCaretDown className="text-white h-3 w-3 cursor-pointer" />
-                  {open && (
+                  {open ? (
                     <div className="absolute top-8 w-32  h-36 bg-white  text-black shadow-md">
                       <div className="flex flex-col items-baseline h-full mt-1 justify-between">
                         {subMenu.map((item, index) => (
                           <NavLink
                             key={index}
                             to={item.path}
+                            onClick={() => setOpen((prev) => !prev)}
                             className="w-full hover:bg-gray-200 px-3 py-3 items-center hover:text-amber-800 transition-all duration-100 ease-linear"
                           >
                             {item.label}
@@ -90,7 +91,7 @@ const Navbar = () => {
                         ))}
                       </div>
                     </div>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>
