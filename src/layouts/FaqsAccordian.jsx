@@ -1,9 +1,6 @@
 import * as React from "react";
 import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-import {
-  QuestionMarkCircleIcon,
-  ChatBubbleOvalLeftIcon,
-} from "@heroicons/react/24/outline";
+
 import help from "../assets/help.png";
 const FaqsAccordian = () => {
   const { useState } = React;
