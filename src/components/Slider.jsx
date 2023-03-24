@@ -10,7 +10,7 @@ const Slider = () => {
   const [sliderData, setData] = useState([
     {
       img: img2,
-      title: "Do you feel difficulty in gethering content for an assignment",
+      title: "Do you feel difficulty in gathering content for an assignment",
       desc: "get your assignments done with assignmentsol",
     },
     {
