@@ -1,6 +1,7 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const PricingTable = () => {
+  const navigate = useNavigate();
   const prices = [
     {
       type: "Easy",
@@ -28,7 +29,13 @@ const PricingTable = () => {
               <h4 className="text-5xl uppercase">{item.price}</h4>
             </div>
             <div className="w-full flex-1 bg-[#fcfffc] flex justify-center items-center">
-              <button className="border border-sky-500 rounded-2xl text-sky-500 px-2 text-sm py-1 w-auto uppercase group-hover:bg-[#0b8d9f] group-hover:text-white">
+              <button
+                className="border border-sky-500 rounded-2xl text-sky-500 px-2 text-sm py-1 w-auto
+               uppercase group-hover:bg-[#0b8d9f] group-hover:text-white"
+                onClick={() => {
+                  navigate("/generate-assignment");
+                }}
+              >
                 generate assignment
               </button>
             </div>
