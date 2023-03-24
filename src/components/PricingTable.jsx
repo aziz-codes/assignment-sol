@@ -8,11 +8,11 @@ const PricingTable = () => {
     },
     {
       type: "Medium",
-      price: "0.99",
+      price: "Free",
     },
     {
       type: "Complex",
-      price: "1.99",
+      price: "Free",
     },
   ];
   return (
@@ -25,7 +25,6 @@ const PricingTable = () => {
               <h4 className="uppercase text-xl ">{item.type}</h4>
             </div>
             <div className="w-full flex-1 bg-[#f4f6f3] flex justify-center items-center">
-              <span className="font-semibold">$</span>
               <h4 className="text-5xl uppercase">{item.price}</h4>
             </div>
             <div className="w-full flex-1 bg-[#fcfffc] flex justify-center items-center">
